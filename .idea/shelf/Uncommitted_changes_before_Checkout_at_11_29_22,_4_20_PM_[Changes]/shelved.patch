@@ -1,0 +1,232 @@
+Index: src/stocks/model/PortfolioModelImpl.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/stocks/model/PortfolioModelImpl.java b/src/stocks/model/PortfolioModelImpl.java
+--- a/src/stocks/model/PortfolioModelImpl.java	
++++ b/src/stocks/model/PortfolioModelImpl.java	
+@@ -1,4 +1,4 @@
+-package stocks;
++package stocks.model;
+ 
+ import java.io.BufferedReader;
+ import java.io.File;
+@@ -96,7 +96,8 @@
+     return result;
+   }
+ 
+-  String performStockValidations(String stockList) {
++
++   String performStockValidations(String stockList) {
+     if (isTickerEmpty(stockList)) {
+       return "Error: Ticker cannot be empty";
+     }
+@@ -120,7 +121,7 @@
+   }
+ 
+ 
+-  void storeUserPortfolioDataToCSV(boolean isFlexible) {
++  protected void storeUserPortfolioDataToCSV(boolean isFlexible) {
+     try {
+       Path p = Paths.get(userPortfolioFileName);
+       boolean isExists = Files.exists(p);
+Index: src/stocks/model/DollarCostAverage.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/stocks/model/DollarCostAverage.java b/src/stocks/model/DollarCostAverage.java
+--- a/src/stocks/model/DollarCostAverage.java	
++++ b/src/stocks/model/DollarCostAverage.java	
+@@ -4,4 +4,5 @@
+ 
+ public interface DollarCostAverage extends FlexiblePortfolioModel {
+ 
++
+ }
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	
++++ b/.idea/workspace.xml	
+@@ -9,49 +9,9 @@
+     </artifacts-to-build>
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="9f39f72b-78b1-4bf0-b5b5-c41784051511" name="Changes" comment="Documentation added">
++    <list default="true" id="9f39f72b-78b1-4bf0-b5b5-c41784051511" name="Changes" comment="dollarCoatAverage">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/out/artifacts/StockProject_jar/StockProject.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/StockProject_jar/StockProject.jar" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/out/artifacts/StockProject_jar4/StockProject.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/StockProject_jar4/StockProject.jar" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/out/production/StockProject/stocks/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/StockProject/stocks/Main.class" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/out/production/StockProject/stocks/PortfolioViewImpl.class" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/out/test/StockProject/stocks/FlexiblePortfolioTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/StockProject/stocks/FlexiblePortfolioTest.class" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/stocks/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/stocks/Main.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/stocks/commands/AddStocksToFlexiblePortfolio.java" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/stocks/commands/Commission.java" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/stocks/commands/CostBasis.java" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/stocks/commands/CreateFlexiblePortfolio.java" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/stocks/commands/DisplayPortfolio.java" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/stocks/commands/DisplayValue.java" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/stocks/commands/SellStocks.java" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/stocks/commands/WeightedStocks.java" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/stocks/commands/createPortfolio.java" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/stocks/commands/performance.java" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/stocks/controller/PortfolioSimulator.java" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/stocks/controller/PortfolioSimulatorCommand.java" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/stocks/controller/PortfolioSimulatorController.java" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/stocks/dataAccess/AbstractFactory.java" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/stocks/dataAccess/AlphaVantageDataAccess.java" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/stocks/dataAccess/CSVDataAccess.java" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/stocks/dataAccess/DataAccessService.java" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/stocks/dataAccess/DataServiceFactory.java" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/stocks/dataAccess/SourceDataTypeEnum.java" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/stocks/model/DollarCostAverage.java" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/stocks/model/DollarCostAverageImpl.java" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/stocks/model/FlexiblePortfolioModel.java" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/stocks/model/FlexiblePortfolioModelImpl.java" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/stocks/model/PortfolioModel.java" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/stocks/model/PortfolioModelImpl.java" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/stocks/model/StockModel.java" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/stocks/model/StockModelImpl.java" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/stocks/utility/PortfolioUtility.java" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/stocks/view/PortfolioView.java" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/stocks/view/PortfolioViewImpl.java" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/test/stocks/FlexiblePortfolioTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/stocks/FlexiblePortfolioTest.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/test/stocks/PortfolioModelImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/stocks/PortfolioModelImplTest.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/test/stocks/PortfolioSimulatorControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/stocks/PortfolioSimulatorControllerTest.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/test/stocks/PortfolioViewImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/stocks/PortfolioViewImplTest.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/test/stocks/StockModelImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/stocks/StockModelImplTest.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/stocks/model/DollarCostAverageImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/stocks/model/DollarCostAverageImpl.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -425,7 +385,14 @@
+       <option name="project" value="LOCAL" />
+       <updated>1668725257721</updated>
+     </task>
+-    <option name="localTasksCounter" value="27" />
++    <task id="LOCAL-00027" summary="dollarCoatAverage">
++      <created>1669755112820</created>
++      <option name="number" value="00027" />
++      <option name="presentableId" value="LOCAL-00027" />
++      <option name="project" value="LOCAL" />
++      <updated>1669755112820</updated>
++    </task>
++    <option name="localTasksCounter" value="28" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -455,7 +422,8 @@
+     <MESSAGE value="Bugs fixed" />
+     <MESSAGE value="Added Unit test" />
+     <MESSAGE value="Documentation added" />
+-    <option name="LAST_COMMIT_MESSAGE" value="Documentation added" />
++    <MESSAGE value="dollarCoatAverage" />
++    <option name="LAST_COMMIT_MESSAGE" value="dollarCoatAverage" />
+   </component>
+   <component name="XDebuggerManager">
+     <breakpoint-manager>
+@@ -580,74 +548,74 @@
+     <SUITE FILE_PATH="coverage/StockProject$PortfolioSimulatorControllerTest.ic" NAME="PortfolioSimulatorControllerTest Coverage Results" MODIFIED="1667391774145" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+       <FILTER>stocks.*</FILTER>
+     </SUITE>
+-    <SUITE FILE_PATH="coverage/StockPortfolio$FlexiblePortfolioTest_TesSellStocksForFlexiblePortfolio.ic" NAME="FlexiblePortfolioTest.TesSellStocksForFlexiblePortfolio Coverage Results" MODIFIED="1668699588653" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
++    <SUITE FILE_PATH="coverage/StockPortfolio$FlexiblePortfolioTest.ic" NAME="FlexiblePortfolioTest Coverage Results" MODIFIED="1668701108366" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+       <FILTER>stocks.*</FILTER>
+     </SUITE>
+-    <SUITE FILE_PATH="coverage/StockProject$PortfolioModelImplTest_testAddPortfolioName.ic" NAME="PortfolioModelImplTest.testAddPortfolioName Coverage Results" MODIFIED="1667393363491" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
++    <SUITE FILE_PATH="coverage/StockProject$PortfolioViewImplTest.ic" NAME="PortfolioViewImplTest Coverage Results" MODIFIED="1667356927350" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+       <FILTER>stocks.*</FILTER>
+     </SUITE>
+-    <SUITE FILE_PATH="coverage/StockProject$PortfolioModelImplTest_testAddPortfolioNamePortfolioExists.ic" NAME="PortfolioModelImplTest.testAddPortfolioNamePortfolioExists Coverage Results" MODIFIED="1667393732885" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
++    <SUITE FILE_PATH="coverage/StockProject$PortfolioModelImplTest_testSaveStocksToList.ic" NAME="PortfolioModelImplTest.testSaveStocksToList Coverage Results" MODIFIED="1667402990415" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+       <FILTER>stocks.*</FILTER>
+     </SUITE>
+-    <SUITE FILE_PATH="coverage/StockProject$PortfolioSimulatorControllerTest_testWrongOptionGreaterThan4.ic" NAME="PortfolioSimulatorControllerTest.testWrongOptionGreaterThan4 Coverage Results" MODIFIED="1667392605442" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
++    <SUITE FILE_PATH="coverage/StockProject$StockModelImplTest_testSetStockCount.ic" NAME="StockModelImplTest.testSetStockCount Coverage Results" MODIFIED="1667413273054" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+       <FILTER>stocks.*</FILTER>
+     </SUITE>
+-    <SUITE FILE_PATH="coverage/StockProject$PortfolioModelImplTest_testSaveStocksToList.ic" NAME="PortfolioModelImplTest.testSaveStocksToList Coverage Results" MODIFIED="1667402990415" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
++    <SUITE FILE_PATH="coverage/StockProject$PortfolioModelImplTest_testSaveStocksToListWrong.ic" NAME="PortfolioModelImplTest.testSaveStocksToListWrong Coverage Results" MODIFIED="1667403130347" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+       <FILTER>stocks.*</FILTER>
+     </SUITE>
+-    <SUITE FILE_PATH="coverage/StockProject$PortfolioModelImplTest_testDisplayPortfolioByDateAfterDate.ic" NAME="PortfolioModelImplTest.testDisplayPortfolioByDateAfterDate Coverage Results" MODIFIED="1667411108397" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
++    <SUITE FILE_PATH="coverage/StockProject$stocks_in_StockProject.ic" NAME="stocks in StockProject Coverage Results" MODIFIED="1667413371221" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+       <FILTER>stocks.*</FILTER>
+     </SUITE>
+-    <SUITE FILE_PATH="coverage/StockProject$PortfolioViewImplTest_testInputNoOfStocksToAdd.ic" NAME="PortfolioViewImplTest.testInputNoOfStocksToAdd Coverage Results" MODIFIED="1667336981689" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
++    <SUITE FILE_PATH="coverage/StockProject$PortfolioModelImplTest_testDisplayPortfolioByDateNoStock.ic" NAME="PortfolioModelImplTest.testDisplayPortfolioByDateNoStock Coverage Results" MODIFIED="1667411420260" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+       <FILTER>stocks.*</FILTER>
+     </SUITE>
+-    <SUITE FILE_PATH="coverage/StockProject$PortfolioModelImplTest_testSaveStocksToListWrong.ic" NAME="PortfolioModelImplTest.testSaveStocksToListWrong Coverage Results" MODIFIED="1667403130347" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
++    <SUITE FILE_PATH="coverage/StockProject$All_in_StockProject.ic" NAME="All in StockProject Coverage Results" MODIFIED="1667416938364" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
++    <SUITE FILE_PATH="coverage/StockProject$PortfolioModelImplTest_testAddPortfolioName.ic" NAME="PortfolioModelImplTest.testAddPortfolioName Coverage Results" MODIFIED="1667393363491" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+       <FILTER>stocks.*</FILTER>
+     </SUITE>
+-    <SUITE FILE_PATH="coverage/StockProject$PortfolioViewImplTest.ic" NAME="PortfolioViewImplTest Coverage Results" MODIFIED="1667356927350" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
++    <SUITE FILE_PATH="coverage/StockProject$PortfolioSimulatorControllerTest_testWrongOption.ic" NAME="PortfolioSimulatorControllerTest.testWrongOption Coverage Results" MODIFIED="1667392546039" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+       <FILTER>stocks.*</FILTER>
+     </SUITE>
+-    <SUITE FILE_PATH="coverage/StockProject$stocks_in_StockProject.ic" NAME="stocks in StockProject Coverage Results" MODIFIED="1667413371221" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
++    <SUITE FILE_PATH="coverage/StockProject$PortfolioModelImplTest_testSaveStocksToListEmpty.ic" NAME="PortfolioModelImplTest.testSaveStocksToListEmpty Coverage Results" MODIFIED="1667403030772" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+       <FILTER>stocks.*</FILTER>
+     </SUITE>
+-    <SUITE FILE_PATH="coverage/StockProject$PortfolioModelImplTest_testDisplayPortfolioByDate.ic" NAME="PortfolioModelImplTest.testDisplayPortfolioByDate Coverage Results" MODIFIED="1667410923451" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
++    <SUITE FILE_PATH="coverage/StockProject$PortfolioSimulatorControllerTest_testWrongOptionGreaterThan4.ic" NAME="PortfolioSimulatorControllerTest.testWrongOptionGreaterThan4 Coverage Results" MODIFIED="1667392605442" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+       <FILTER>stocks.*</FILTER>
+     </SUITE>
+-    <SUITE FILE_PATH="coverage/StockProject$PortfolioViewImplTest_displayTotalPortfolioValue.ic" NAME="PortfolioViewImplTest.displayTotalPortfolioValue Coverage Results" MODIFIED="1667356493396" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
++    <SUITE FILE_PATH="coverage/StockPortfolio$FlexiblePortfolioTest_TesSellStocksForFlexiblePortfolio.ic" NAME="FlexiblePortfolioTest.TesSellStocksForFlexiblePortfolio Coverage Results" MODIFIED="1668699588653" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+       <FILTER>stocks.*</FILTER>
+     </SUITE>
+-    <SUITE FILE_PATH="coverage/StockPortfolio$FlexiblePortfolioTest_TestGetUserPortfolioNameList.ic" NAME="FlexiblePortfolioTest.TestGetUserPortfolioNameList Coverage Results" MODIFIED="1668693936099" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
++    <SUITE FILE_PATH="coverage/StockProject$PortfolioModelImplTest.ic" NAME="PortfolioModelImplTest Coverage Results" MODIFIED="1667412182617" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+       <FILTER>stocks.*</FILTER>
+     </SUITE>
+-    <SUITE FILE_PATH="coverage/StockProject$PortfolioModelImplTest_testDisplayPortfolioByDateNoStock.ic" NAME="PortfolioModelImplTest.testDisplayPortfolioByDateNoStock Coverage Results" MODIFIED="1667411420260" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
++    <SUITE FILE_PATH="coverage/StockProject$PortfolioModelImplTest_testDisplayPortfolioByDate.ic" NAME="PortfolioModelImplTest.testDisplayPortfolioByDate Coverage Results" MODIFIED="1667410923451" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+       <FILTER>stocks.*</FILTER>
+     </SUITE>
+-    <SUITE FILE_PATH="coverage/StockProject$PortfolioModelImplTest_testDisplayPortfolio.ic" NAME="PortfolioModelImplTest.testDisplayPortfolio Coverage Results" MODIFIED="1667401795608" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
++    <SUITE FILE_PATH="coverage/StockPortfolio$FlexiblePortfolioTest_TestGetCostBasisByPortfolioNameAndDate.ic" NAME="FlexiblePortfolioTest.TestGetCostBasisByPortfolioNameAndDate Coverage Results" MODIFIED="1668690854563" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+       <FILTER>stocks.*</FILTER>
+     </SUITE>
+-    <SUITE FILE_PATH="coverage/StockProject$StockModelImplTest_testSetStockCount.ic" NAME="StockModelImplTest.testSetStockCount Coverage Results" MODIFIED="1667413273054" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
++    <SUITE FILE_PATH="coverage/StockProject$PortfolioViewImplTest_displayTotalPortfolioValue.ic" NAME="PortfolioViewImplTest.displayTotalPortfolioValue Coverage Results" MODIFIED="1667356493396" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+       <FILTER>stocks.*</FILTER>
+     </SUITE>
+-    <SUITE FILE_PATH="coverage/StockPortfolio$FlexiblePortfolioTest_TestGetCostBasisByPortfolioNameAndDate.ic" NAME="FlexiblePortfolioTest.TestGetCostBasisByPortfolioNameAndDate Coverage Results" MODIFIED="1668690854563" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
++    <SUITE FILE_PATH="coverage/StockProject$PortfolioViewImplTest_testInputNoOfStocksToAdd.ic" NAME="PortfolioViewImplTest.testInputNoOfStocksToAdd Coverage Results" MODIFIED="1667336981689" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+       <FILTER>stocks.*</FILTER>
+     </SUITE>
+-    <SUITE FILE_PATH="coverage/StockProject$PortfolioModelImplTest.ic" NAME="PortfolioModelImplTest Coverage Results" MODIFIED="1667412182617" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
++    <SUITE FILE_PATH="coverage/StockProject$PortfolioModelImplTest_testAddPortfolioNamePortfolioExists.ic" NAME="PortfolioModelImplTest.testAddPortfolioNamePortfolioExists Coverage Results" MODIFIED="1667393732885" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+       <FILTER>stocks.*</FILTER>
+     </SUITE>
+-    <SUITE FILE_PATH="coverage/StockPortfolio$FlexiblePortfolioTest.ic" NAME="FlexiblePortfolioTest Coverage Results" MODIFIED="1668701108366" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
++    <SUITE FILE_PATH="coverage/StockProject$PortfolioModelImplTest_testDisplayPortfolio.ic" NAME="PortfolioModelImplTest.testDisplayPortfolio Coverage Results" MODIFIED="1667401795608" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+       <FILTER>stocks.*</FILTER>
+     </SUITE>
+-    <SUITE FILE_PATH="coverage/StockProject$PortfolioSimulatorControllerTest_testPortfolioController1.ic" NAME="PortfolioSimulatorControllerTest.testPortfolioController1 Coverage Results" MODIFIED="1667192009795" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
++    <SUITE FILE_PATH="coverage/StockPortfolio$FlexiblePortfolioTest_TestAddStocksToFlexiblePortfolio.ic" NAME="FlexiblePortfolioTest.TestAddStocksToFlexiblePortfolio Coverage Results" MODIFIED="1668697556584" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+       <FILTER>stocks.*</FILTER>
+     </SUITE>
+-    <SUITE FILE_PATH="coverage/StockProject$PortfolioSimulatorControllerTest_testWrongOption.ic" NAME="PortfolioSimulatorControllerTest.testWrongOption Coverage Results" MODIFIED="1667392546039" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
++    <SUITE FILE_PATH="coverage/StockProject$PortfolioSimulatorControllerTest_testPortfolioController1.ic" NAME="PortfolioSimulatorControllerTest.testPortfolioController1 Coverage Results" MODIFIED="1667192009795" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+       <FILTER>stocks.*</FILTER>
+     </SUITE>
+-    <SUITE FILE_PATH="coverage/StockProject$All_in_StockProject.ic" NAME="All in StockProject Coverage Results" MODIFIED="1667416938364" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+-    <SUITE FILE_PATH="coverage/StockProject$PortfolioModelImplTest_testSaveStocksToListEmpty.ic" NAME="PortfolioModelImplTest.testSaveStocksToListEmpty Coverage Results" MODIFIED="1667403030772" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
++    <SUITE FILE_PATH="coverage/StockProject$PortfolioModelImplTest_testDisplayPortfolioByDateAfterDate.ic" NAME="PortfolioModelImplTest.testDisplayPortfolioByDateAfterDate Coverage Results" MODIFIED="1667411108397" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+       <FILTER>stocks.*</FILTER>
+     </SUITE>
+-    <SUITE FILE_PATH="coverage/StockPortfolio$FlexiblePortfolioTest_TestAddStocksToFlexiblePortfolio.ic" NAME="FlexiblePortfolioTest.TestAddStocksToFlexiblePortfolio Coverage Results" MODIFIED="1668697556584" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
++    <SUITE FILE_PATH="coverage/StockPortfolio$FlexiblePortfolioTest_TestGetUserPortfolioNameList.ic" NAME="FlexiblePortfolioTest.TestGetUserPortfolioNameList Coverage Results" MODIFIED="1668693936099" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+       <FILTER>stocks.*</FILTER>
+     </SUITE>
+   </component>
